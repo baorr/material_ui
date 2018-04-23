@@ -147,7 +147,7 @@ header{
     padding: 0 0 0 24px;
   }
 
-  .news{
+  .news, .annance{
     @include reset-lists;
     ul li{
       padding: 6px 0;
@@ -165,6 +165,10 @@ header{
         }
       }
     }
+  }
+
+  .fast-take{
+    @include reset-lists;
   }
 
   .quick{
