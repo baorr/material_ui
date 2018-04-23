@@ -1,0 +1,25 @@
+$lists-border-color: rgba(224, 224, 224, 1);
+$lists-backgroud-hover-color: rgba(238, 238, 238, 1);
+@mixin lists{
+	.lists{
+		.list{
+			@include grid;
+			width: 100%;
+			border-bottom: 1px $lists-border-color solid;
+			border-left: 1px $lists-border-color solid;
+			border-right: 1px $lists-border-color solid;
+			box-sizing: border-box;
+			&:hover{
+				background-color: $lists-backgroud-hover-color;
+			}
+			.list-item{
+				@include grid-unit;
+				font-size: 12px;
+				padding:12px 0 12px 24px;
+				a{
+					text-decoration: none;
+				}
+			}
+		}
+	}
+}

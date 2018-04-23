@@ -1,0 +1,55 @@
+* {
+  outline: 0; }
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: Helvetica Neue, HelveticaNeue, Helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; }
+
+a {
+  outline: 0; }
+
+em {
+  font-weight: 700;
+  font-style: normal; }
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+menu,
+nav,
+section,
+summary {
+  display: block; }
+
+p, h1, h2, h3, h4, h5 {
+  list-style: none;
+  padding: 0;
+  margin: 0; }
+
+img {
+  border: 0;
+  outline: 0; }
+
+/*list.scss*/
+header ul, header li {
+  padding: 0;
+  margin: 0; }
+
+header a {
+  text-decoration: none;
+  color: #a6a6a6;
+  font-size: 1em;
+  padding: 1em; }
+  header a:hover {
+    color: #2b82d9;
+    background-color: #f2f2f2; }

@@ -1,0 +1,65 @@
+$accordion-font-color: rgba(33, 33, 33, 1);
+$accordion-border-color: rgba(224, 224, 224, 1);
+$accordion-backgroud-color: rgba(255, 255, 255, 1);
+$accordion-backgroud-hover-color: rgba(238, 238, 238, 1);
+$accordion-backgroud-selected-color: rgba(245, 245, 245, 1);
+$accordion-icon-color: rgba(167, 167, 167, 1);
+
+@mixin accordion{
+		.accordion{
+			.item{
+				> input[type='radio'], > input[type='checkbox']{
+				  display: none;
+				  &:checked{
+					~ .content{
+					  	display: block;
+					};
+
+					~ label{
+						background-color: $accordion-backgroud-selected-color;
+						border-bottom-width: 1px;
+						&::after{
+					  	 transform: rotate(45deg);
+					  }
+					}
+				  };
+				}
+
+				& > .content{
+					overflow: auto;
+					padding: 0 10px;
+					display: none;
+				}
+
+				& > label {
+				  cursor: pointer;
+				  padding: 12px 0 12px 24px;
+				  display: block;
+				  font-size: 15px;
+				  background-color: $accordion-backgroud-color;
+				  border: 1px solid $accordion-border-color;
+				  -webkit-box-sizing: border-box;
+				  -moz-box-sizing: border-box;
+				  box-sizing: border-box;
+				  &:hover{
+					  background-color: $accordion-backgroud-hover-color;
+				  };
+				  position: relative;
+				  &::after{
+				  	 content: '';
+				  	 width: 6px;
+				  	 height: 6px;
+				  	 border: 2px $accordion-icon-color solid;
+				  	 position: absolute;
+				  	 right: 24px;
+				  	 display: block;
+				  	 transform: rotate(-135deg);
+				  	 top: 18px;
+				  	 border-left: 0;
+				  	 border-top: 0;
+				  	 transition: transform 0.2s ease-out;
+				  }
+				}
+			}
+		}
+}

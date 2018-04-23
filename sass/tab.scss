@@ -1,0 +1,117 @@
+//tab
+$tab-navi-font-color: rgba(90, 104, 114, 1);
+$tab-navi-border-color: rgba(0, 0, 0, 0);
+$tab-navi-font-hover-color: rgba(61, 112, 178, 1);
+$tab-navi-border-hover-color: rgba(61, 112, 178, 1);
+$tab-panel-items-background-color: rgba(255, 255, 255, 1);
+
+@mixin tab{
+	.tab{
+		.tab-list{
+			ul{
+				@include grid;
+				li{
+					@include grid-unit;
+					padding: 0 2.25em 0 0;
+					a{
+						display: block;
+						text-align: center;
+						padding: 12px 0;
+						color: $tab-navi-font-color;
+						text-decoration: none;
+						border-bottom: 2px solid $tab-navi-border-color;
+						font-size: 0.875em;
+					}
+
+					&:hover a, a.selected{
+						color: $tab-navi-font-hover-color;
+						border-bottom: 2px solid $tab-navi-border-hover-color;
+					}
+				}
+			}
+		}
+
+		.panel-items{
+			background-color: $tab-panel-items-background-color;
+			.item{
+				padding: 32px 0;
+				font-size: 0.875em;
+			}
+		}
+	}
+};
+
+
+@mixin pure-css-tab-left($i, $n){
+	$N: $i - 1;
+	$unit: (100% / $n);
+	left: to-fixed($unit * $N);
+}
+
+@mixin pure-css-tab{
+	.tab{
+		> input{
+			display: none;
+			@for $i from 1 through 3 {
+			  	&:nth-child(#{$i}):checked{
+					~ .tab-list{
+						ul li:nth-child(#{$i}) label{
+							color: $tab-navi-font-hover-color;
+						};
+						.slide{
+							@include pure-css-tab-left($i, 3);
+						}
+					};
+					~ .panel-items{
+						.item:nth-child(#{$i}){
+							display: block;
+						};
+					};
+				};
+			};
+		};
+		.tab-list{
+			position: relative;
+			ul{
+				padding: 0;
+				@include grid;
+				li{
+					@include grid-unit;
+					box-sizing: border-box;
+					a, label{
+						display: block;
+						text-align: center;
+						padding: 12px 0;
+						color: $tab-navi-font-color;
+						text-decoration: none;
+						font-size: 0.875em;
+						cursor: pointer;
+					};
+					@include grid-column(1, 3);
+					&:hover a, a.selected, &:hover label{
+						color: $tab-navi-font-hover-color;
+					};
+				}
+			}
+
+			.slide {
+			  background: #ffeb3b;
+			  width: calc(100% / 3);
+			  height: 4px;
+			  position: absolute;
+			  left: 0;
+			  top: calc(100% - 4px);
+			  -webkit-transition: left 0.3s ease-out;
+			  transition: left 0.3s ease-out;
+			}
+		}
+
+		.panel-items{
+			background-color: $tab-panel-items-background-color;
+			.item{
+				font-size: 0.875em;
+				display: none;
+			}
+		}
+	}
+};

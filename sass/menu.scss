@@ -1,0 +1,26 @@
+@import "variable.scss";
+@import "layout.scss";
+
+@mixin navi{
+	nav {
+		ul{
+			padding: 0;
+			margin: 0;
+			@include pure-g;
+			li{
+				@include pure-u;
+				position: relative;
+				a{
+					display: block;
+					padding: 0.5em 1em;
+					font-size: 0.75em;
+					color: rgba(0, 255, 255, 1);
+					text-decoration: none;
+					&:hover{
+						
+					}
+				}
+			}
+		}
+	}
+}

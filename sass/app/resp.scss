@@ -1,0 +1,663 @@
+@import 'reset';
+@import 'list';
+@import "../layout/grid";
+@import "../accordion";
+@import "../table";
+@import "../list";
+@import "../tab";
+
+.sider-menu{
+  position: fixed;
+  left: -12.5em;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  width: 12.5em;
+  background-color: rgba(255, 255, 255, 1);
+  z-index: 24;
+  transition: all .25s ease;
+  @include menu_list;
+
+  .logo{
+    ul{
+      background-color: rgba(19, 158, 216, 1);
+      li{
+        padding: 1em 5.25em 1em 1em;
+        img{
+          vertical-align: middle;
+          width: 6.25em;
+        };
+      }
+    }
+  };
+
+  li{
+    position: relative;
+  }
+
+  a{
+    display: block;
+    &:hover{
+      ~ .bar{
+        width: 100%;
+      }
+    }
+  }
+
+  .bar{
+    width: 0px;
+    -webkit-transition: width .15s;
+    transition: width .15s;
+    height: 2px;
+    position: absolute;
+    display: block;
+    background-color: rgba(43, 130, 217, 0.5);
+    bottom: 0;
+    left: 0; 
+  }
+};
+
+header{ 
+  position: fixed;
+  z-index: 16;
+  box-shadow: 0 0 10px rgba(76, 76, 76, 0.25);
+  background-color: rgba(255, 255, 255, 1);
+  width: 100%;
+
+  @include menu_list;
+
+  > div{
+    vertical-align: middle;
+    display: inline-block;
+    ul{
+      @include grid;
+      li{
+      @include grid-unit;
+        a{
+          display: block;
+        }
+      }
+    }
+  };
+
+  .siderbar-button{
+    ul {
+      li{
+        a{
+          padding: 0;
+          label{
+            display: block;
+            padding: 1em;
+            cursor: pointer;
+          }
+        }
+      }
+    }
+  }
+
+  .user-info{
+    float: right;
+  }
+
+  .navi{
+    float: right;
+    ul{
+      li{
+        display: inline-block;
+      };
+    }
+  }
+
+  .search{
+    float: right;
+    ul li a{
+      padding: 0;
+      overflow: hidden;
+      label{
+        display: block;
+        padding: 1em;
+        transform: rotate(90deg) scale(2.2);
+        cursor: pointer;
+      }
+    }
+  }
+};
+
+.layout-wrapper{
+  margin: 0 0 10px 0;
+  -webkit-box-shadow: 0px 0 2px 0 rgba(0, 0, 0, 0.14);
+  -moz-box-shadow:    0px 0 2px 0 rgba(0, 0, 0, 0.14);
+  box-shadow:         0px 0 2px 0 rgba(0, 0, 0, 0.14);
+  @include grid;
+  .left-column, .middle-cloumn, .right-cloumn{
+    @include grid-unit;
+  }
+
+  .left-column, .right-cloumn{
+    @include grid-column(1, 2);
+  }
+
+  .middle-cloumn{
+    @include grid-column(4, 5);
+  }
+
+  @include pure-css-tab;
+
+  .panel-items{
+    padding: 0 0 0 24px;
+  }
+
+  .news{
+    @include reset-lists;
+    ul li{
+      padding: 6px 0;
+      a{
+        font-size: 12px;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+        width: 100%;
+        text-decoration: none;
+        color: rgba(0, 0, 0, 0.87);
+        &:hover{
+          color: rgba(0, 0, 0, 0.54);
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+
+  .quick{
+    @include reset-lists;
+    ul{
+      @include grid;
+      li{
+        @include grid-unit;
+        a{
+          display: block;
+        }
+      }
+    }
+  }
+}
+
+.modal {
+  opacity: 0;
+  visibility: hidden;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: rgba(0, 0, 0, .3);
+  transition: opacity .25s ease;
+  display: block;
+  z-index: -20;
+}
+
+.pop-toggle{
+  position: absolute;
+  top: -200000px;
+}
+
+.pop-toggle:checked{
+     ~ .modal{
+        opacity: 1;
+        visibility: visible;
+        z-index: 20;
+    }
+
+    ~ .sider-menu{
+      left: 0;
+      -webkit-box-shadow: 0px -5px 10px 0px rgba(0, 0, 0, 0.15);
+      -moz-box-shadow:    0px -5px 10px 0px rgba(0, 0, 0, 0.15);
+      box-shadow:         0px -5px 10px 0px rgba(0, 0, 0, 0.15);
+    }
+}
+
+.content-wrapper{
+  padding: 4em 1em 2em;
+}
+
+.accordion-lists{
+  margin: 12px 0 0 0;
+  @include accordion;
+  ul.accordion{
+    padding: 0;
+    margin: 0;
+    @include grid;
+    li{
+      padding: 0;
+      margin: 0;
+      list-style: none;
+    }
+
+    .item{
+      @include grid-unit;
+      @include grid-column(98, 300);
+      box-sizing: border-box;
+      margin-bottom: 24px;
+      &:nth-child(3n-2){
+        padding: 0;
+      }
+      > .content{
+        padding: 0;
+        ul,li{
+          padding: 0;
+          margin: 0;
+        }
+        @include lists;
+        .lists{
+          .list{
+            .list-item{
+              text-overflow: ellipsis;
+              white-space: nowrap;
+              overflow: hidden;
+              width: 70%;
+              box-sizing: border-box;
+              &:last-child{
+                width: 30%;
+                color: rgba(0, 0, 0, 0.54);
+              }
+            }
+          }
+        };
+
+        .file > a, .notice > a{
+          position: relative;
+          vertical-align: middle;
+          color: rgba(0, 0, 0, 0.87);
+          &::before{
+            content:'[文件] ';
+            color: rgba(180, 180, 180, 1);
+            font-weight: bolder;
+          }
+        };
+        .notice > a{
+          &::before{
+            content:'[公告] ';
+            color: rgba(0, 0, 0, 1);
+          }
+        };
+      };
+
+      &:nth-child(3n-1){
+        margin:0 1% 24px;
+      }
+    };
+  }
+}
+
+.calendar-wrapper{
+  -webkit-box-shadow: 0px -5px 10px 0px rgba(0, 0, 0, 0.15);
+  -moz-box-shadow:    0px -5px 10px 0px rgba(0, 0, 0, 0.15);
+  box-shadow:         0px -5px 10px 0px rgba(0, 0, 0, 0.15);
+
+  header{
+    box-shadow: none;
+    h1{
+      text-align: center;
+    }
+  }
+  .days, .dates{
+    @include grid;
+    span{
+      @include grid-unit;
+      @include grid-column(1, 7);
+      text-align: center;
+    }
+  }
+
+  .days{
+    margin: 0.5em 0;
+  }
+
+  .dates{
+    span{
+      padding: 0.5em 0 0 0;
+      font-size: 0.75em;
+    }
+  }
+}
+
+
+
+.table-wrapper{
+  margin: 1em 0 0 0;
+  @include table-with-div;
+}
+
+
+@media screen and (max-width: 768px){
+  .table-wrapper{
+    margin: 0;
+    @include table-with-div-reponsive;
+  }
+  
+  .content-wrapper {
+      padding: 4em 0 2em;
+  }
+
+  header{ 
+    .navi{
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      display: block;
+      z-index: 16;
+      -webkit-box-shadow: 0px -2px 11px 0px rgba(0, 0, 0, 0.15);
+      -moz-box-shadow:    0px -2px 11px 0px rgba(0, 0, 0, 0.15);
+      box-shadow:         0px -2px 11px 0px rgba(0, 0, 0, 0.15);
+      float:none;
+      background-color: rgba(255, 255, 255, 1);
+      ul{
+        li{
+          @include grid-column(1, 3);
+          a{
+            text-align: center;
+            padding: 1.25em;
+          }
+        }
+      }
+    }
+  }
+
+  .container{
+    margin-bottom: -70px;
+    padding-bottom: 70px;
+  }
+
+.accordion-lists{
+  ul.accordion{
+    .item{
+      width: 100%;
+      margin:0;
+      & > label{
+        border-bottom-width: 0;
+        border-left: 0;
+        border-right: 0;
+        padding-left: 12px;
+      };
+
+      &:last-child{
+        & > label{
+          border-bottom-width: 1px;
+        }
+      };
+
+       > .content{
+        .lists{
+          .list{
+            border-left: 0;
+            border-right: 0;
+            &:last-child{
+              border-bottom: 0;
+            };
+          };
+        };
+      };
+      -webkit-box-shadow: none;
+      -moz-box-shadow:    none;
+      box-shadow:         none;
+      &:nth-child(3n-1){
+        margin:0;
+      }
+    };
+  }
+}
+
+}
+
+
+
+//Colors
+$background: #fefefe;
+$text: #4b507a;
+
+$cyan: #60daaa;
+$yellow: #fbca67;
+$orange: #ff8a30;
+$red: #f45e61;
+$purple: #6477b9;
+$blue: #0eb7da;
+
+// Basic styles
+.button {
+  background: none;
+  border: 0;
+  box-sizing: border-box;
+  margin: 1em;
+  padding: 1em 2em;
+  
+  // Using inset box-shadow instead of border for sizing simplicity
+  box-shadow: inset 0 0 0 2px $red;
+  color: $red;
+  font-size: inherit;
+  font-weight: 700;
+
+  // Required, since we're setting absolute on pseudo-elements
+  position: relative;
+  vertical-align: middle;
+
+  &::before,
+  &::after {
+    box-sizing: inherit;
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.draw {
+    transition: color 0.25s;
+
+  &::before,
+  &::after {
+    // Set border to invisible, so we don't see a 4px border on a 0x0 element before the transition starts
+    border: 2px solid transparent;
+    width: 0;
+    height: 0;
+  }
+
+  // This covers the top & right borders (expands right, then down)
+  &::before {
+    top: 0;
+    left: 0;
+  }
+
+  // And this the bottom & left borders (expands left, then up)
+  &::after {
+    bottom: 0;
+    right: 0;
+  }
+  
+  &:hover {
+    color: $cyan;
+  }
+
+  // Hover styles
+  &:hover::before,
+  &:hover::after {
+    width: 100%;
+    height: 100%;
+  }
+
+  &:hover::before {
+    border-top-color: $cyan; // Make borders visible
+    border-right-color: $cyan;
+    transition:
+      width 0.25s ease-out, // Width expands first
+      height 0.25s ease-out 0.25s; // And then height
+  }
+
+  &:hover::after {
+    border-bottom-color: $cyan; // Make borders visible
+    border-left-color: $cyan;
+    transition:
+      border-color 0s ease-out 0.5s, // Wait for ::before to finish before showing border
+      width 0.25s ease-out 0.5s, // And then exanding width
+      height 0.25s ease-out 0.75s; // And finally height
+  }
+}
+
+// Inherits from .draw
+.meet {
+  
+  &:hover {
+    color: $yellow;
+  }
+
+  // Start ::after in same position as ::before
+  &::after {
+    top: 0;
+    left: 0;
+  }
+
+  // Change colors
+  &:hover::before {
+    border-top-color: $yellow;
+    border-right-color: $yellow;
+  }
+
+  &:hover::after {
+    border-bottom-color: $yellow;
+    border-left-color: $yellow;
+    transition: // Animate height first, then width
+      height 0.25s ease-out,
+      width 0.25s ease-out 0.25s;
+  }
+
+}
+
+// Does not inherit
+.center {
+  &:hover {
+    color: $purple;
+  }
+
+  // Set up base styles, we're going to scale instead of animating width/height
+  &::before,
+  &::after {
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    transform-origin: center; // Ensure scaling is done from the center (expands outwards)
+  }
+
+  // scale3d(<scale-horizontal>, <scale-vertical>, <scale-depth>);
+  &::before {
+    border-top: 2px solid $purple;
+    border-bottom: 2px solid $purple;
+    transform: scale3d(0,1,1); // Shrink only width
+  }
+
+  &::after {
+    border-left: 2px solid $purple;
+    border-right: 2px solid $purple;
+    transform: scale3d(1,0,1); // Shrink only height
+  }
+
+  &:hover::before,
+  &:hover::after {
+    transform: scale3d(1,1,1); // Show full-size
+    transition: transform 0.5s;
+  }
+}
+
+// Border spins around element
+// ::before holds three borders that appear separately, one at a time
+// ::after holds one border that spins around to cover ::before's borders, making their appearance seem smooth
+
+.spin {
+  width: 5em;
+  height: 5em;
+  padding: 0;
+  
+  &:hover {
+    color: $blue;
+  }
+
+  &::before,
+  &::after {
+    top: 0;
+    left: 0;
+  }
+
+  &::before {
+    border: 2px solid transparent; // We're animating border-color again
+  }
+
+  &:hover::before {
+    border-top-color: $blue; // Show borders
+    border-right-color: $blue;
+    border-bottom-color: $blue;
+
+    transition:
+      border-top-color 0.15s linear, // Stagger border appearances
+      border-right-color 0.15s linear 0.10s,
+      border-bottom-color 0.15s linear 0.20s;
+  }
+
+  &::after {
+    border: 0 solid transparent; // Makes border thinner at the edges? I forgot what I was doing
+  }
+
+  &:hover::after {
+    border-top: 2px solid $blue; // Shows border
+    border-left-width: 2px; // Solid edges, invisible borders
+    border-right-width: 2px; // Solid edges, invisible borders
+    transform: rotate(270deg); // Rotate around circle
+    transition:
+      transform 0.4s linear 0s,
+      border-left-width 0s linear 0.35s; // Solid edge post-rotation
+  }
+}
+
+.circle {
+  border-radius: 100%;
+  box-shadow: none;
+    
+  &::before,
+  &::after {
+    border-radius: 100%;
+  }
+}
+
+.thick {
+  color: $red;
+
+  &:hover {
+    color: #fff;
+    font-weight: 700;
+  }
+
+  &::before {
+    border: 2.5em solid transparent;
+    z-index: -1;
+  }
+
+  &::after {
+    mix-blend-mode: color-dodge;
+    z-index: -1;
+  }
+
+  &:hover::before {
+    background: $red;
+    border-top-color: $red;
+    border-right-color: $red;
+    border-bottom-color: $red;
+    transition:
+      background 0s linear 0.4s,
+      border-top-color 0.15s linear,
+      border-right-color 0.15s linear 0.15s,
+      border-bottom-color 0.15s linear 0.25s;
+  }
+
+  &:hover::after {
+    border-top: 2.5em solid $red;
+    border-left-width: 2.5em;
+    border-right-width: 2.5em;
+  }
+}
