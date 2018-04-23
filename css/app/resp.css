@@ -266,13 +266,13 @@ header {
       display: none; }
   .layout-wrapper .panel-items {
     padding: 0 0 0 24px; }
-  .layout-wrapper .news ul, .layout-wrapper .news li {
+  .layout-wrapper .news ul, .layout-wrapper .news li, .layout-wrapper .notices ul, .layout-wrapper .notices li {
     margin: 0;
     padding: 0;
     list-style: none; }
-  .layout-wrapper .news ul li {
+  .layout-wrapper .news ul li, .layout-wrapper .notices ul li {
     padding: 6px 0; }
-    .layout-wrapper .news ul li a {
+    .layout-wrapper .news ul li a, .layout-wrapper .notices ul li a {
       font-size: 12px;
       text-overflow: ellipsis;
       white-space: nowrap;
@@ -280,9 +280,13 @@ header {
       width: 100%;
       text-decoration: none;
       color: rgba(0, 0, 0, 0.87); }
-      .layout-wrapper .news ul li a:hover {
+      .layout-wrapper .news ul li a:hover, .layout-wrapper .notices ul li a:hover {
         color: rgba(0, 0, 0, 0.54);
         text-decoration: underline; }
+  .layout-wrapper .fast-take ul, .layout-wrapper .fast-take li {
+    margin: 0;
+    padding: 0;
+    list-style: none; }
   .layout-wrapper .quick ul, .layout-wrapper .quick li {
     margin: 0;
     padding: 0;
