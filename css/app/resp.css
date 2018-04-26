@@ -734,8 +734,9 @@ header {
       .layout-wrapper .right-cloumn .group-navi > input:checked ~ ul.for-mobile {
         display: block;
         z-index: 30;
-        right: -10px;
-        opacity: 1; }
+        top: -215px;
+        opacity: 1;
+        visibility: visible; }
       .layout-wrapper .right-cloumn .group-navi > input:checked ~ .act-button {
         transform: rotate(-45deg); }
     .layout-wrapper .right-cloumn .group-navi .act-button {
@@ -754,11 +755,13 @@ header {
         height: 50px; }
     .layout-wrapper .right-cloumn .group-navi ul.for-mobile {
       opacity: 0;
+      display: block;
       position: absolute;
-      top: -215px;
-      right: -110px;
+      top: -265px;
+      right: -15px;
       -webkit-transition: all 0.3s linear;
-      transition: all 0.3s linear; }
+      transition: all 0.3s linear;
+      visibility: hidden; }
       .layout-wrapper .right-cloumn .group-navi ul.for-mobile li {
         border-right: 1px #e0e0e0 solid;
         background-color: white; }
