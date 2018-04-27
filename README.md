@@ -2,9 +2,9 @@
 implement material ui
 
 # Aim
-I do not think we need a whole UI, what we need is a good way to resolve the problem. 
-At the begining, I gave this solution to give a eye-lightening solution to Front End.
-I do not think React, Vuejs, Angularjs can solve every problem for Front End.
+1. I do not think we need a whole UI, what we need is a good way to resolve the problem. 
+2. At the begining, I gave this solution to give a eye-lightening solution to Front End.
+3. I do not think React, Vuejs, Angularjs can solve every problem for Front End.
 
 # use it
 1. npm i;
