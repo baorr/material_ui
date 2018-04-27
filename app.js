@@ -9,6 +9,10 @@ router.get("/demo",function(req,res){
   res.sendFile(__dirname + "/demo.html");
 });
 
+router.get("/ui",function(req,res){
+  res.sendFile(__dirname + "/ui.html");
+});
+
 app.use(router);
 
 app.listen(3000,function(){
