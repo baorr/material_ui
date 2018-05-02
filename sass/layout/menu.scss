@@ -1,0 +1,52 @@
+$menu-item-backgroud-color: $backgroud-color;
+$menu-item-backgroud-hover-color: $backgroud-color;
+$menu-item-backgroud-selected-color: $backgroud-color;
+
+$menu-item-font-color: $font-color;
+$menu-item-font-hover-color: $font-hover-color;
+$menu-item-font-selected-color: $font-selected-color;
+
+@mixin menu{
+	.menu{
+		@include reset-lists;
+		ul{
+			li{
+				float: left;
+				position: relative;
+				ul{
+					display: none;
+				};
+				a{
+					display: block;
+					color: $menu-item-font-color;
+					padding: 20px;
+					text-decoration: none;
+				};
+				&:hover{
+					a{
+						background-color: $menu-item-backgroud-hover-color;
+						color: $menu-item-font-hover-color;
+					};
+					> ul{
+						display: block;
+						position: absolute;
+					};
+					li{
+						float: none;
+						ul{
+							left: 100%;
+							top: 0;
+						}
+					}
+				};
+			};
+			&:before,&:after{
+				content: " ";
+				display: table;
+			};
+			&:after{
+				clear: both;
+			}
+		}
+	}
+}

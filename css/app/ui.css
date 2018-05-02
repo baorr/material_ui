@@ -1,0 +1,36 @@
+/* 
+* From https://css-tricks.com/snippets/sass/fix-number-n-digits/ 
+*/
+.appnav .menu ul, .appnav .menu li {
+  margin: 0;
+  padding: 0;
+  list-style: none; }
+
+.appnav .menu ul li {
+  float: left;
+  position: relative; }
+  .appnav .menu ul li ul {
+    display: none; }
+  .appnav .menu ul li a {
+    display: block;
+    color: rgba(0, 0, 0, 0.87);
+    padding: 20px;
+    text-decoration: none; }
+  .appnav .menu ul li:hover a {
+    background-color: white;
+    color: rgba(0, 0, 0, 0.54); }
+  .appnav .menu ul li:hover > ul {
+    display: block;
+    position: absolute; }
+  .appnav .menu ul li:hover li {
+    float: none; }
+    .appnav .menu ul li:hover li ul {
+      left: 100%;
+      top: 0; }
+
+.appnav .menu ul:before, .appnav .menu ul:after {
+  content: " ";
+  display: table; }
+
+.appnav .menu ul:after {
+  clear: both; }
