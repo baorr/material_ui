@@ -1,0 +1,130 @@
+@import '../utils/utils';
+
+@import '../theme/light';
+
+@import '../reset/reset';
+@import "../layout/bar";
+@import "../layout/grid";
+@import "../layout/nav";
+
+@import "../common/common";
+
+@import "../comps/menu/menu";
+@import "../comps/button/button";
+@import "../comps/table/table";
+@import "../comps/accordion/accordion";
+
+
+@import "../table";
+
+@include reset;
+
+
+.wrapper{
+	padding: 0 12px;
+	&[class~="-wrapper"]{
+		margin: 1rem 0 0 0;
+	};
+}
+
+
+.main-title{
+	@include bar;
+	padding-left: 0;
+	font-size: 1.5em;
+};
+
+.button{
+	@include button;
+	@include ripple;
+	&:active{
+      	@include button-hover;
+    }
+};
+
+.text-button{
+	@include button;
+	@include text-button;
+	&:active{
+      	@include text-button-hover;
+    }
+};	
+
+.modal {
+  opacity: 0;
+  visibility: hidden;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: rgba(0, 0, 0, .3);
+  transition: opacity .25s ease;
+  display: block;
+  z-index: -20;
+  width: 100%;
+  height: 100%;
+  min-height: 100%;
+
+};
+
+.pop-toggle{
+  position: absolute;
+  top: -200000px;
+};
+
+.pop-toggle:checked{
+     ~ .modal{
+        opacity: 1;
+        visibility: visible;
+        z-index: 20;
+    }
+};
+
+.button-wrapper{
+	margin: 1rem 0 0 0;
+	> div{
+		margin: 1rem 0 0 0.5625rem;
+	};
+};
+
+
+.table-wrapper{
+	margin: 3rem 0 0 0;
+	> div{
+		margin: 1rem 0 0 0.5625rem;
+	};
+	.table-comps-wrapper{
+		@include table-with-div;
+	}
+};
+
+.accordion-wrapper{
+	margin: 3rem 0 0 0;
+	> div{
+		margin: 1rem 0 0 0.5625rem;
+	};
+	@include reset-lists;
+	@include accordion;
+
+	.accordion{
+		.item{
+			label{
+				font-weight: bolder;
+			};
+			
+			.content{
+				padding: 0.75rem 1.5rem;
+				border-left: 1px $accordion-border-color solid;
+				border-right: 1px $accordion-border-color solid;
+				color: rgba(0, 0, 0, 0.3);
+			}
+		}
+	};	
+};
+
+.accordion-wrapper{
+	> label{
+		display: inline-block;
+	}
+}

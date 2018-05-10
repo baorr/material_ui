@@ -1,51 +1,109 @@
-@mixin table{
-	table{
-    	border-collapse: collapse;
-	    border-spacing: 0;
-	    empty-cells: show;
+$table-cell-font-color: $font-color;
+$table-header-font-color: rgba(0, 0, 0, 0.54);
+$table-cell-border-color: $border-color;
+
+$table-row-hover-color: $backgroud-hover-color;
+$table-row-selected-color: $backgroud-selected-color;
+
+$table-background-color: $backgroud-color;
+
+$table-shadow-color: $shadow-color;
+
+
+@mixin table-with-div{
+    .table{
 	    width: 100%;
-	    border: 1px solid $table-border-color;
-
-	    caption{
-	    	color: $table-font-color;
-		    font: italic 85%/1 arial, sans-serif;
-		    padding: 1em 0;
-		    text-align: center;
+	    display: table;
+	    margin: 0;
+	    @include shadow(0px, 0px, 2px, 0px, $table-shadow-color);
+	    .row, .theader{
+	      display: table-row;
 	    }
 
-	    td, th{
-	    	border-bottom: 1px solid $table-border-color;
-		    margin: 0;
-		    overflow: visible;
-		    padding: 8px 16px;
-		    font-size: 0.875em;
-		    text-align: left;
-		    color: $table-font-color;
+	    .cell{
+	      display: table-cell;
+	      border-bottom: 1px $table-cell-border-color solid;
 	    }
 
-	    th{
-	    	border-bottom: 1px solid $flat-blue;
+	    .row{
+	      .cell{
+	        font-size: 13px;
+	        color: $table-cell-font-color;
+	        font-weight: unset !important;
+	        padding: 0.75rem 0;
+	        background-color: $table-background-color;
+	        cursor: pointer;
+	      }
+
+	      &:hover{
+	        .cell{
+	        	background-color: $table-row-hover-color;
+	        }
+	      }
 	    }
 
-	    tbody{
-	    	tr{
-		    	&:nth-child(2n+1){
-		    		td{
-			    		background-color: $table-odd-row-color;
-			    	}
-		    	}
-
-		    	&:hover{
-		    		outline: 1px solid $table-row-hover-border-color;
-		    	}
-		    }
+	    .theader{
+	      .cell{
+	      	color:$table-header-font-color;
+	        font-size: 12px;
+	        font-weight: unset !important;
+	        background-color: $table-background-color;
+	        padding: 18px 0;
+	      }
 	    }
 
-	    thead {
-		    color: $table-header-font-color;
-		    text-align: left;
-		    vertical-align: bottom;
+	    .row .cell:nth-child(1),.theader .cell:nth-child(1){
+	      padding-left: 1.5rem;
+	    }
+   }
+
+  .table, .row, .theader{
+    width: 100% !important;
+  }
+};
+
+@mixin table-with-div-reponsive{
+	.table {
+		display: block;
+		.cell {
+			display: inline-block;
 		}
 
-    }
+		.row {
+			display: block;
+			padding: 0;
+			margin: 0;
+			box-sizing: border-box;
+			overflow: hidden;
+			@include grid;
+			.cell{
+				@include grid-unit;
+				padding: 0 0 8px 16px;
+				font-weight: unset !important;
+				box-sizing: border-box;
+				color: $table-header-font-color;
+				width: 50%;
+				font-size: 12px;
+				&:nth-child(1){
+					width: 100%;
+					border: none;
+					color: $table-cell-font-color;
+					font-size: 14px;
+					padding: 12px 0 8px 16px;
+				}
+			}
+		}
+
+		.theader {
+			padding: 0;
+			height: 0px;
+			.cell {
+				display: none;
+			}
+		}
+	}
+
+	.table{
+		width: 100% !important;
+	}
 }

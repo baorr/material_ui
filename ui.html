@@ -5,58 +5,143 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link href="css/app/ui.css" rel="stylesheet" type="text/css" />
+    <link href="./css/ui/ui.css" rel="stylesheet" type="text/css" />
   </head>
   <body>
+   <div class="wrapper">
 
-   <header class="appnav">
-        <div class="menu">
-            <ul class="main-navigation">
-              <li><a href="#">Home</a></li>
-              <li><a href="#">Front End Design</a>
-                <ul>
-                  <li><a href="#">HTML</a></li>
-                  <li><a href="#">CSS</a>
-                    <ul>
-                      <li><a href="#">Resets</a></li>
-                      <li><a href="#">Grids</a></li>
-                      <li><a href="#">Frameworks</a></li>
-                    </ul>
-                  </li>
-                  <li><a href="#">JavaScript</a>
-                    <ul>
-                      <li><a href="#">Ajax</a></li>
-                      <li><a href="#">jQuery</a></li>
-                    </ul>
-                  </li>
-                </ul>
+      <div class="accordion-wrapper">
+          <h2 class="main-title">
+            Popups
+          </h2>
+          <label class="button" for="sider-menu-toggle">
+              点击打开
+          </label>
+      </div>
+
+      <div class="button-wrapper">
+          <h2 class="main-title">
+            Buttons
+          </h2>
+          <div class="default-button-wrapper">
+            <button class="button">Hello World</button>
+          </div>
+          <div class="text-button-wrapper">
+            <button class="text-button" ontouchstart="" onmouseover="">Hello World</button>
+          </div>
+      </div>
+
+      <div class="table-wrapper">
+          <h2 class="main-title">
+            Tables
+          </h2>
+          <div class="table-comps-wrapper">
+            <div class="table">
+              <div class="theader">
+                <div class="cell">
+                  标题
+                </div>
+                <div class="cell">
+                  创建人
+                </div>
+                <div class="cell">
+                  接收日期
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="cell" data-title="标题">
+                  居住证积分续办
+                </div>
+                <div class="cell" data-title="创建人">
+                  鲍冉冉
+                </div>
+                <div class="cell" data-title="接收日期">
+                  2018-04-13 08:32:05
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="cell" data-title="标题">
+                  居住证积分续办
+                </div>
+                <div class="cell" data-title="创建人">
+                  鲍冉冉
+                </div>
+                <div class="cell" data-title="接收日期">
+                  2018-04-13 08:32:05
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="cell" data-title="标题">
+                  居住证积分续办
+                </div>
+                <div class="cell" data-title="创建人">
+                  鲍冉冉
+                </div>
+                <div class="cell" data-title="接收日期">
+                  2018-04-13 08:32:05
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="cell" data-title="标题">
+                  居住证积分续办
+                </div>
+                <div class="cell" data-title="创建人">
+                  鲍冉冉
+                </div>
+                <div class="cell" data-title="接收日期">
+                  2018-04-13 08:32:05
+                </div>
+              </div>
+
+            </div>
+          </div>
+      </div>
+
+      <div class="accordion-wrapper">
+          <h2 class="main-title">
+            Accordions
+          </h2>
+          <ul class="accordion">
+              <li class="item">
+                <input type="checkbox" name="l-1" id="l-1" checked />
+                <label for="l-1">
+                  项目一
+                </label>
+                <div class="content">
+                  content 1
+                </div>
               </li>
-              <li><a href="#">WordPress Development</a>
-                <ul>
-                  <li><a href="#">Themes</a></li>
-                  <li><a href="#">Plugins</a></li>
-                  <li><a href="#">Custom Post Types</a>
-                    <ul>
-                      <li><a href="#">Portfolios</a></li>
-                      <li><a href="#">Testimonials</a></li>
-                    </ul>
-                  </li>
-                  <li><a href="#">Options</a></li>
-                </ul>
+              <li class="item">
+                <input type="checkbox" name="l-2" id="l-2" />
+                <label for="l-2">
+                  项目二
+                </label>
+                <div class="content">
+                  content 1
+                </div>
               </li>
-              <li><a href="#">About Us</a></li>
-            </ul>
-        </div>
-   </header>
-
-
+              <li class="item">
+                <input type="checkbox" name="l-3" id="l-3" />
+                <label for="l-3">
+                  项目三
+                </label>
+                <div class="content">
+                  content 1
+                </div>
+              </li>
+          </ul>
+      </div>
+      
+    </div>
     <input type="checkbox" class="pop-toggle" id="sider-menu-toggle" name="sider-menu-toggle" />
-
     <!--遮罩-->
     <label class="modal" for="sider-menu-toggle">
       
     </label>
     <!--/ 遮罩-->
-    <script src="js/generate.js"></script>
   </body>
 </html>

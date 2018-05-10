@@ -1,8 +1,22 @@
+$white-color: rgba(255, 255, 255, 1);
+$light-grey-color: rgba(238, 238, 238, 0.5);
+$lighter-grey-color: rgba(220, 220, 220, 0.8);
+$shine-color: rgba(255, 255, 255, 0.3);
+$shadow-color: rgba(0, 0, 0, 0.14);
+
+
 $font-color: rgba(0, 0, 0, 0.87);
 $font-hover-color: rgba(0, 0, 0, 0.54);
 $font-selected-color: rgba(0, 0, 0, 0.15);
 
-$backgroud-color: rgba(255, 255, 255, 1);
+$backgroud-color: $white-color;
 $backgroud-hover-color: rgba(238, 238, 238, 1);
 $backgroud-selected-color: rgba(245, 245, 245, 1);
 
+$border-color: rgba(240, 240, 240, 1);
+
+
+/*action: button */
+$action-font-color: rgba(33, 150, 243, 1);
+$action-background-color: rgba(33, 150, 243, 1);
+$action-background-hover-color: rgba(33, 150, 243, 0.9);
