@@ -19,17 +19,19 @@ implement material ui
    2. Only two pages util now, the login page and Wanda OA Portal page, but they are responsive, and support for PC, Mobile, App.
    3. I follow the Meterial UI guideline (https://material.io/guidelines/).
 
-### current version: 1.0.2（05/10/2018）
-### Function list:
-    1. UI components page: table, accordin, popup, button.
-### demo
-    https://baorr.github.io/ui.html
-
-### next version: 1.1.0(05/22/2018)
+### current version: 1.1.0(05/28/2018)
 ### Function list:
     1. Menus
     2. Snackbars & toasts
     3. Dropdown Buttons;
+### demo
+    https://baorr.github.io/ui.html
+
+### next version: 1.2.0(06/16/2018)
+### Function list:
+    1. Redefined the components has been built.
+    2. Add document to declare the high reuse of components
+    3. Fixed the bugs for IOS
 
 
 

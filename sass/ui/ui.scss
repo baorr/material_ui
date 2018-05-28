@@ -212,7 +212,7 @@
 				    width: 100%;
 
 				};
-				&:hover{
+				&:hover, &:focus, &:active{
 					ul{
 						display: block;
 					}
