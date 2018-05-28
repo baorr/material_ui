@@ -1,0 +1,4 @@
+@mixin disable{
+	color: $font-disable-color;
+	background-color: $backgroud-disable-color;
+}

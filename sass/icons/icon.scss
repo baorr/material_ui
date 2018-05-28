@@ -1,0 +1,44 @@
+@mixin icon-tick{
+	&:before{
+		content: " ";
+	    display: inline-block;
+	    width: 0.3rem;
+	    height: 0.75rem;
+	    border: solid $font-color;
+	    border-width: 0 2px 2px 0;
+	    margin-right: 0.75rem;
+	    -webkit-transform: rotate(45deg);
+	    -o-transform: rotate(45deg);
+	    transform: rotate(45deg);
+	}
+};
+
+@mixin icon-right-triangle{
+	&:before{
+	    content: " ";
+	    display: inline-block;
+	    width: 0; 
+	  	height: 0; 
+	 	border-top: 4px solid transparent;
+	  	border-bottom: 4px solid transparent;
+	  	border-left: 6px solid $font-color;
+	  	position: absolute;
+    	right: 1rem;
+    	top: 1.0625rem;
+	}
+};
+
+@mixin icon-down-triangle{
+	&:before{
+	    content: " ";
+	    display: inline-block;
+	    width: 0; 
+	  	height: 0; 
+	 	border-left: 4px solid transparent;
+	  	border-right: 4px solid transparent;
+	  	border-top: 6px solid $font-color;
+	  	position: absolute;
+    	right: 1rem;
+    	top: 1.0625rem;
+	}
+}

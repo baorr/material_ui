@@ -1,19 +1,23 @@
 @import '../utils/utils';
+@import "../common/common";
 
 @import '../theme/light';
+
+@import '../icons/icon';
+
+@import "../status/works";
+@import "../status/hover";
 
 @import '../reset/reset';
 @import "../layout/bar";
 @import "../layout/grid";
 @import "../layout/nav";
 
-@import "../common/common";
-
 @import "../comps/menu/menu";
 @import "../comps/button/button";
 @import "../comps/table/table";
 @import "../comps/accordion/accordion";
-
+@import "../comps/list/list";
 
 @import "../table";
 
@@ -49,6 +53,45 @@
       	@include text-button-hover;
     }
 };	
+
+.drop-down-button{
+	@include button;
+    input{
+    	display: none;
+    	&:checked ~ ul{
+	  		opacity: 1;
+			visibility: visible;
+			-webkit-transform: translate(0, 5px);
+          	transform: translate(0, 5px);
+	    }
+    }
+    @include icon-down-triangle;
+    &:before{
+    	border-top: 6px solid $white-color;
+    }
+    position: relative;
+    display: inline-block;
+    padding-right: 2.5rem;
+    overflow: inherit;
+    @include reset-lists;
+	ul{
+		position: absolute;
+		top: 100%;
+		left: 0;
+		width: 100%;
+		opacity: 0;
+		visibility: hidden;
+		transition: 0.3s ease;
+		box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+		@include border-radius(0.125rem);
+		@include list;
+		li{
+			font-size: 0.8125rem;
+			padding: 0.75rem 1rem;
+			cursor: pointer;
+		}
+	};
+}
 
 .modal {
   opacity: 0;
@@ -128,3 +171,79 @@
 		display: inline-block;
 	}
 }
+
+
+.list-wrapper{
+	margin: 3rem 0 0 0;
+	> div{
+		margin: 1rem 0 0 0.5625rem;
+	};
+	@include reset-lists;
+	ul{
+		@include list;
+		li.icon-tick{
+			@include icon-tick;
+		}
+	};
+};
+
+.menu-wrapper{
+	margin: 3rem 0 0 0;
+	> div{
+		margin: 1rem 0 0 0.5625rem;
+	};
+
+	.vertical-menu-wrapper{
+		width: 8rem;
+		margin: 0 0 1rem;
+		@include reset-lists;
+		ul{
+			box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+			@include border-radius(0.125rem);
+			@include list;
+			> li{
+				position: relative;
+				ul{
+					display: none;
+					position: absolute;
+					left: 100%;
+				    top: 0;
+				    z-index: 1;
+				    width: 100%;
+
+				};
+				&:hover{
+					ul{
+						display: block;
+					}
+				}
+			}
+			li.sub-menu{
+				@include icon-right-triangle;
+			}
+			li{
+				font-size: 0.8125rem;
+				padding: 0.75rem 1rem;
+				cursor: pointer;
+			}
+			li.icon-tick{
+				@include icon-tick;
+			}
+		};
+	}
+};
+
+.bar-wrapper{
+	margin: 3rem 0 0 0;
+	div{
+		margin: 1rem 0 0 0.5625rem;
+	};
+	.snackbar{
+		@include bar;
+		@include bar-works;
+		margin: 1rem 0;
+		&.round{
+			@include border-radius(20px);
+		}
+	};
+};

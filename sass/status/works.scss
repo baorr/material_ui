@@ -1,0 +1,12 @@
+@mixin works{
+	color: $font-color;
+	background-color: $backgroud-color;
+}
+
+@mixin bar-works{
+	color: $backgroud-color;
+	background-color: $font-color;
+	font-size: 0.8125rem;
+	@include border-radius(3px);
+}
+

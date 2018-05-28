@@ -1,0 +1,9 @@
+@mixin list{
+	@include works;
+	.item, > li{
+		padding: 0.75rem;
+		&:hover{
+			@include hover;
+		}
+	}
+};

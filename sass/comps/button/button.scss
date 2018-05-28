@@ -63,3 +63,7 @@ $text-button-background-hover-color: $lighter-grey-color;
     background-color: $text-button-background-hover-color;
 }
 
+@mixin drop-down-button{
+    padding: 12px;
+}
+

@@ -5,7 +5,7 @@
           border-radius: $radius;
 }
 
-@mixin shadow($x, $y, $blur, $color) {
+@mixin shadow($x, $y, $blur, $motion,$color) {
   -webkit-box-shadow: $x $y $blur $motion $color;
      -moz-box-shadow: $x $y $blur $motion $color;
           box-shadow: $x $y $blur $motion $color;
